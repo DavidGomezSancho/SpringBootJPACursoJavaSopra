@@ -10,32 +10,33 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import com.curso.spring.boot.ejemplo15springbootrestclient.model.entities.Cliente;
+import com.curso.java.spring.boot.model.entities.Multa;
 
-//@SpringBootApplication
 public class Ejemplo15springBootRestClientApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(Ejemplo15springBootRestClientApplication.class, args);
 		
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
 		headers.setContentType(MediaType.APPLICATION_JSON);
-		HttpEntity<Cliente[]> httpEntity = new HttpEntity<Cliente[]>(headers);
+		HttpEntity<Multa[]> httpEntity = new HttpEntity<Multa[]>(headers);
 		RestTemplate template = new RestTemplate();
-		ResponseEntity<Cliente[]> response = 
+		ResponseEntity<Multa[]> response = 
 				template.exchange(
-						"http://localhost:8080/clientes", 
+						"http://localhost:8080/multas", 
 						HttpMethod.GET,
 						httpEntity,
-						Cliente[].class);
+						Multa[].class);
 		HttpStatus statusCode = response.getStatusCode();
 		
 		if(statusCode == HttpStatus.OK) {
-			Cliente[] clientes = response.getBody();
-			if(clientes != null) {
-				for(Cliente cliente : clientes) {
-					System.out.println(cliente.getNombre());
+			Multa[] multas = response.getBody();
+			if(multas != null) {
+				for(Multa multa : multas) {
+					System.out.println("Matricula: "+multa.getMatricula());
+					System.out.println("Categoría: "+multa.getCategoria());
+					System.out.println("Cantidad: "+multa.getCantidad());
+					System.out.println("------------------------------------------");
 				}
 			}
 		}
