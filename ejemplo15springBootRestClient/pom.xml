@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.curso.spring.boot</groupId>
-	<artifactId>ejemplo15springBootRestClient</artifactId>
+	<artifactId>SpringBootRestClient</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ejemplo15springBootRestClient</name>
 	<description>Ejemplo cliente REST</description>

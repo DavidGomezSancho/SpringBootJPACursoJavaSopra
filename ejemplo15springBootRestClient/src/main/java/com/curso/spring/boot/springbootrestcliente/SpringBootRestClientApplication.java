@@ -1,7 +1,9 @@
-package com.curso.spring.boot.ejemplo15springbootrestclient;
+package com.curso.spring.boot.springbootrestcliente;
 
 import java.util.Arrays;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -10,12 +12,14 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
+import com.curso.java.cliente.spring.boot.ClienteApplication;
 import com.curso.java.spring.boot.model.entities.Multa;
 
-public class Ejemplo15springBootRestClientApplication {
+@SpringBootApplication
+public class SpringBootRestClientApplication {
 
 	public static void main(String[] args) {
-		
+		SpringApplication.run(ClienteApplication.class, args);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setAccept(Arrays.asList(new MediaType[] { MediaType.APPLICATION_JSON }));
 		headers.setContentType(MediaType.APPLICATION_JSON);
